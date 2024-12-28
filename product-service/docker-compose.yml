@@ -1,0 +1,15 @@
+#Docker compose file for mongodb
+#run docker compose up -d to run the container in detached mode (background)
+version: '4'
+services:
+  mongodb:
+    image: mongo:7.0.5
+    container_name: mongodb
+    ports:
+      - "27017:27017"  #hostPort:containerPort
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: password
+        MONOG_INITDB_DATABASE: product-service
+    volumes:
+      - ./data:/data/db
